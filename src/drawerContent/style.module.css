@@ -1,0 +1,46 @@
+.root {
+    display: "flex";
+  }
+  
+  .appBar {
+    display: none;
+  }
+  
+  .menuButton {
+    margin-right: 70px;
+  }
+  
+  .drawerPaper {
+    width: 190px;
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 30px;
+    padding-left: 270px;
+  }
+  
+  @media only screen and (max-width: 400px) {
+    .content {
+      padding: 30px;
+      padding-top: 70px;
+    }
+    .drawer {
+      width: 240px;
+      flex-shrink: 0;
+    }
+  
+    .menuButton {
+      display: "none";
+    }
+  
+    .appBar {
+      /* padding-left: 20px; */
+      background-color: #3f51b5;
+      position: fixed;
+      width: 100%;
+      display: flex;
+      z-index: 100;
+    }
+  }
+  
