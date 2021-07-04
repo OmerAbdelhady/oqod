@@ -17,7 +17,9 @@ class Token extends Component {
             id:'',
             owner:'',
             type:'',
-            quantity:''
+            quantity:'',
+            errorMessage :''
+
         }
     }
     SendData=()=>{
@@ -26,7 +28,7 @@ class Token extends Component {
         owner  : this.state.owner,
         type  :this.state.type,
         quantity: this.state.quantity 
-        }).then((res)=>console.log('res',res.data)).catch((error)=>console.log('error',error))
+        }).then((res)=>console.log('res',res.data)).catch((error)=>this.setState({errorMessage:'Network Error'}))
     }
     render(){
     return (
@@ -40,6 +42,8 @@ class Token extends Component {
 <Button variant="contained" color="primary" style={{alignSelf:"self-start",display:'block',margin :10,marginLeft:'15%'}} onClick={()=>this.SendData()}>
   Create
 </Button>
+<h2 style={{color:'red',fontSize:20}}>{this.state.errorMessage}</h2>
+
     </Layout>
 
   );

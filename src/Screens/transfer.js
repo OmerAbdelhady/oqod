@@ -15,7 +15,9 @@ class transfer extends Component {
         this.state={
             sid:'',
             rid:'',
-            quant:''
+            quant:'',
+            errorMessage :''
+
         }
     }
     sendData=()=>{
@@ -23,7 +25,7 @@ class transfer extends Component {
             sid : this.state.sid,
             rid : this.state.rid,
             quant :this.state.quant
-        }).then((res)=>console.log('res',res.data)).catch((error)=>console.log('error',error.response.data))
+        }).then((res)=>console.log('res',res.data)).catch((error)=>this.setState({errorMessage:'Network Error'}))
     }
     render(){
   return (
@@ -36,6 +38,8 @@ class transfer extends Component {
    <Button variant="contained" color="primary" style={{alignSelf:"self-start",display:'block',margin :10,marginLeft:"15%"}} onClick={()=>this.sendData()}>
   Create
 </Button>
+<h2 style={{color:'red',fontSize:20}}>{this.state.errorMessage}</h2>
+
     </Layout>
 
   );

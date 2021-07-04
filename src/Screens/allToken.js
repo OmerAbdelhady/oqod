@@ -12,12 +12,13 @@ class App extends Component {
   constructor(){
     super()
     this.state={
-      data:[]
+      data:[],
+      errorMessage :''
     }
   }
 
   componentDidMount(){
-    axios.get('http://3.227.84.96:10000/returnAllToken',{}).then((res)=>this.setState({data : res?.data})).catch((error)=>console.log('error',error))
+    axios.get('http://3.227.84.96:10000/returnAllToken',{}).then((res)=>this.setState({data : res?.data})).catch((error)=>this.setState({errorMessage:'Network Error'}))
   }
   render(){
   
@@ -31,6 +32,7 @@ class App extends Component {
      <div style={{width:'10%',height:2,backgroundColor:"#000"}}></div>
   </div>
   <TableRow data={this.state.data}/>
+  <h2 style={{color:'red',fontSize:20}}>{this.state.errorMessage}</h2>
       </header>
     </div>
     </Layout>

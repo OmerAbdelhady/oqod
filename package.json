@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "homepage": "https://myusername.github.io/my-app",
+  "homepage": "https://omerabdelhady.github.io/oqod",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,7 +21,6 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "build:staging": "env-cmd -f .env.staging npm run build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

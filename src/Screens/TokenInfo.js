@@ -13,14 +13,16 @@ class Token_Info extends Component {
     constructor(){
         super()
         this.state={
-            Id :''
+            Id :'',
+            errorMessage :''
+
         }
     }
 
     SendData=()=>{ 
         axios.post('https://cors-anywhere.herokuapp.com/http://3.227.84.96:10000/GettokenByID',{
         ID :this.state.Id,
-         }).then((res)=>console.log('res',res.data)).catch((error)=>console.log('error',error.response.data))
+         }).then((res)=>console.log('res',res.data)).catch((error)=>this.setState({errorMessage:'Network Error'}))
      }
     render(){
   return (
@@ -31,6 +33,8 @@ class Token_Info extends Component {
    <Button onClick={()=>this.SendData()} variant="contained" color="primary" style={{alignSelf:"self-start",display:'block',margin :10,marginLeft:"15%"}} >
   Get Token
 </Button>
+<h2 style={{color:'red',fontSize:20}}>{this.state.errorMessage}</h2>
+
     </Layout>
 
   );
